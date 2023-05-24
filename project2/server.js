@@ -7,7 +7,7 @@ const app = express();
 //To get around the issue with not GETting response from server:
 
 app.get("/",(req, res)=> {
-  res.send("<h1>Hello World");
+  res.send("<h1>Hello World</h1>");
 });
 
 app.listen(3000, () => {
