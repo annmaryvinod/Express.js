@@ -12,7 +12,16 @@ app.get("/",(req,res)=>{
 
 })
 
-// handling post request
+//bmicalculator route
+
+app.get("/bmicalculator",(req,res)=>{
+    res.sendFile(__dirname + "/bmiCalculator.html");
+})
+
+
+
+
+// handling post request to root
 app.post("/",(req,res)=>{
 
     let n1 = Number(req.body.num1);  //if we do not use Number method the returned values are text and therefore the result will be a concatenated value
@@ -22,6 +31,19 @@ app.post("/",(req,res)=>{
 
 
     res.send("Result of calculation is : " + result);
+})
+
+
+// handling post request to root
+
+app.post("/bmicalculator", (req,res)=>{
+    let h = Number(req.body.height);
+    let w = Number(req.body.weight);
+
+    let h1 = h * h;
+    let bmi = w/h1;
+
+    res.send("Your BMI is : " + bmi);
 })
 
 //port
